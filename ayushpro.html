@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYUSH - Organic Farming Ecosystem</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+
+        /* Buttons and Cards */
+        .btn {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #388e3c;
+        }
+        .btn.back {
+            background: #666;
+        }
+        .btn.back:hover {
+            background: #444;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        /* Cart and Checkout */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .total {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Feedback */
+        .feedback {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f1f8e9;
+            border-radius: 8px;
+        }
+        .feedback textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .contact {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="container">
+            <h1 style="text-align: center; color: #4caf50;">AYUSH - Organic Farming Ecosystem</h1>
+            <p style="text-align: center;">Choose your path:</p>
+            <div class="grid">
+                <button class="btn" onclick="showPage('farmer')">🌾 Farmer</button>
+                <button class="btn" onclick="showPage('consumer')">🛒 Consumer</button>
+            </div>
+            
+            <!-- Feedback Section -->
+            <div class="feedback">
+                <h3>Feedback</h3>
+                <textarea placeholder="Share your thoughts..."></textarea>
+                <button class="btn">Submit</button>
+                <div class="contact">
+                    <p><strong>Contact:</strong></p>
+                    <p>Name: Admin – B.Yashwanth</p>
+                    <p>Email: yashwanthbotlagunta@email.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Farmer Page -->
+    <div id="farmer" class="page">
+        <div class="container">
+            <h2>Farmer Options</h2>
+            <div class="grid">
+                <button class="btn" onclick="showPage('crop-guidance')">🌱 Crop Guidance</button>
+                <button class="btn" onclick="showPage('inputs')">🧪 Inputs</button>
+                <button class="btn" onclick="alert('Registration coming soon!')">📝 Register with Us</button>
+            </div>
+            <button class="btn back" onclick="showPage('home')">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Crop Guidance -->
+    <div id="crop-guidance" class="page">
+        <div class="container">
+            <h2>Crop Guidance</h2>
+            <div class="grid">
+                <div class="card" onclick="alert('Details for Wheat coming soon!')">Wheat</div>
+                <div class="card" onclick="alert('Details for Rice coming soon!')">Rice</div>
+                <div class="card" onclick="alert('Details for Maize coming soon!')">Maize</div>
+            </div>
+            <button class="btn back" onclick="showPage('farmer')">Back</button>
+        </div>
+    </div>
+
+    <!-- Inputs -->
+    <div id="inputs" class="page">
+        <div class="container">
+            <h2>Farming Inputs</h2>
+            <div class="grid">
+                <div class="card">Bio-fertilizers</div>
+                <div class="card">Natural Pesticides</div>
+                <div class="card">Organic Compost</div>
+                <div class="card">Panchagavya / Panchamrutham</div>
+                <div class="card">Other Essential Farming Goods</div>
+            </div>
+            <button class="btn back" onclick="showPage('farmer')">Back</button>
+        </div>
+    </div>
+
+    <!-- Consumer Page -->
+    <div id="consumer" class="page">
+        <div class="container">
+            <h2>Consumer Options</h2>
+            <div class="grid">
+                <button class="btn" onclick="showPage('view-products')">👀 View Products</button>
+                <button class="btn" onclick="showPage('buy-products')">🛍️ Buy Products</button>
+            </div>
+            <button class="btn back" onclick="showPage('home')">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- View Products -->
+    <div id="view-products" class="page">
+        <div class="container">
+            <h2>View Products</h2>
+            <div class="grid">
+                <div class="card">Organic Vegetables</div>
+                <div class="card">Organic Fruits</div>
+                <div class="card">Organic Foods</div>
+                <div class="card">Organic Products</div>
+                <div class="card">Organic Seeds</div>
+            </div>
+            <button class="btn back" onclick="showPage('consumer')">Back</button>
+        </div>
+    </div>
+
+    <!-- Buy Products -->
+    <div id="buy-products" class="page">
+        <div class="container">
+            <h2>Buy Products</h2>
+            <div class="grid">
+                <div class="card">
+                    Organic Tomatoes<br>₹50/kg
+                    <button class="btn" onclick="addToCart('Organic Tomatoes', 50)">Add to Cart</button>
+                </div>
+                <div class="card">
+                    Organic Apples<br>₹100/kg
+                    <button class="btn" onclick="addToCart('Organic Apples', 100)">Add to Cart</button>
+                </div>
+                <div class="card">
+                    Organic Rice<br>₹60/kg
+                    <button class="btn" onclick="addToCart('Organic Rice', 60)">Add to Cart</button>
+                </div>
+            </div>
+            <button class="btn" onclick="showPage('cart')">View Cart</button>
+            <button class="btn back" onclick="showPage('consumer')">Back</button>
+        </div>
+    </div>
+
+    <!-- Cart and Checkout -->
+    <div id="cart" class="page">
+        <div class="container">
+            <h2>Cart & Checkout</h2>
+            <div id="cart-items"></div>
+            <div class="total">Total: ₹<span id="total">0</span></div>
+            <input type="text" placeholder="Delivery Address" id="address">
+            <select id="payment">
+                <option>Cash on Delivery</option>
+                <option>UPI</option>
+            </select>
+            <button class="btn" onclick="alert('Order placed!')">🟢 Buy Now</button>
+            <button class="btn back" onclick="showPage('buy-products')">Back</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            total += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = cart.map(item => `<div class="cart-item">${item.name} - ₹${item.price}</div>`).join('');
+            document.getElementById('total').textContent = total;
+        }
+    </script>
+</body>
+</html>
